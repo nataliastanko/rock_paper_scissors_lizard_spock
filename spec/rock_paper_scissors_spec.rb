@@ -36,4 +36,9 @@ RSpec.describe 'rock paper scissors game' do
     expect(RockPaperScissors.new(:rock, :rock).wins?(:rock)).to eq false
     expect(RockPaperScissors.new(:rock, :rock).wins?(:paper)).to eq false
   end
+
+  it 'responds to the question if draw' do
+    expect(RockPaperScissors.new(:rock, :paper).draw?).to eq false
+    expect(RockPaperScissors.new(:paper, :paper).draw?).to eq true
+  end
 end

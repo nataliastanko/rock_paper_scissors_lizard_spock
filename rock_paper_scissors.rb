@@ -42,6 +42,10 @@ class RockPaperScissors
     winner == choice
   end
 
+  def draw?
+    winner == :draw
+  end
+
   def winner
     return :draw if @choice1 == @choice2
 
