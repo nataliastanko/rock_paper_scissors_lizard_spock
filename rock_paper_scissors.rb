@@ -18,12 +18,21 @@ class RockPaperScissors
   OPTIONS = %i[rock paper scissors].freeze
   WINS = { paper: :rock, scissors: :paper, rock: :scissors }.freeze
 
-  def winner(choice1, choice2)
-    raise ArgumentError, "Possible options: #{OPTIONS.join(', ')}" unless OPTIONS.include? (choice1)
-    raise ArgumentError, "Possible options: #{OPTIONS.join(', ')}" unless OPTIONS.include? (choice2)
+  def initialize(choice1, choice2)
+    @choice1 = choice1
+    @choice2 = choice2
 
-    return :draw if choice1 == choice2
+    raise_error_if_not_vallid choice1
+    raise_error_if_not_vallid choice2
+  end
 
-    WINS[choice1] == choice2 ? choice1 : choice2
+  def raise_error_if_not_vallid(choice)
+    raise ArgumentError, "Possible options: #{OPTIONS.join(', ')}" unless OPTIONS.include? (choice)
+  end
+
+  def winner
+    return :draw if @choice1 == @choice2
+
+    WINS[@choice1] == @choice2 ? @choice1 : @choice2
   end
 end
