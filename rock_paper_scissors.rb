@@ -19,7 +19,8 @@ class RockPaperScissors
   # WINS = { 'paper' => 'paper', 'scissors' => 'paper', 'rock' => 'scissors' }.freeze
 
   def winner(choice1, choice2)
-    # binding.pry
+    return :draw if choice1 == choice2
+
     WINS[choice1] == choice2 ? choice1 : choice2
   end
 end
