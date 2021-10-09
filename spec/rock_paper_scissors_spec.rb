@@ -2,7 +2,7 @@
 
 require_relative '../rock_paper_scissors'
 
-RSpec.describe 'rock paper scissors game' do
+RSpec.describe 'rock paper scissors game mechanics' do
   it 'paper beats rock' do
     expect(RockPaperScissors.new(:paper, :rock).winner).to eq :paper
     expect(RockPaperScissors.new(:rock, :paper).winner).to eq :paper
@@ -18,6 +18,14 @@ RSpec.describe 'rock paper scissors game' do
     expect(RockPaperScissors.new(:scissors, :rock).winner).to eq :rock
   end
 
+  it 'describes which player won' do
+    expect(RockPaperScissors.new(:rock, :paper).wins?(:paper)).to eq true
+    expect(RockPaperScissors.new(:rock, :rock).wins?(:rock)).to eq false
+    expect(RockPaperScissors.new(:rock, :rock).wins?(:paper)).to eq false
+  end
+end
+
+RSpec.describe 'rock paper scissors game exceptions' do
   it 'is a draw' do
     expect(RockPaperScissors.new(:rock, :rock).winner).to eq :draw
     expect(RockPaperScissors.new(:paper, :paper).winner).to eq :draw
@@ -29,12 +37,6 @@ RSpec.describe 'rock paper scissors game' do
     expect { RockPaperScissors.new(:spock, :rock).winner }.to raise_error(NotRPSArgumentError)
     expect { RockPaperScissors.new(:rock, :lizard).winner }.to raise_error(NotRPSArgumentError)
     expect { RockPaperScissors.new(:rock, :lizard).winner }.to raise_error(NotRPSArgumentError, error_message)
-  end
-
-  it 'describes which player won' do
-    expect(RockPaperScissors.new(:rock, :paper).wins?(:paper)).to eq true
-    expect(RockPaperScissors.new(:rock, :rock).wins?(:rock)).to eq false
-    expect(RockPaperScissors.new(:rock, :rock).wins?(:paper)).to eq false
   end
 
   it 'responds to the question if draw' do
