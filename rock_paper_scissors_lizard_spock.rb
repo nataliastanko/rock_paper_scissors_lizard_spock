@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
-# https://www.codewars.com/kata/5672a98bdbdd995fad00000f
-# Rock Paper Scissors
-# Let's play! You have to return which player won! In case of a draw return Draw!.
-
-require_relative 'errors/not_rsp_argument_error'
+require_relative 'errors/not_rpsls_argument_error'
 
 ##
-# Describes RockPaperScissors game
-# Raise an error if initial parameters do not meet games criteria
-class RockPaperScissors
-  OPTIONS = %i[rock paper scissors].freeze
+# Describes Rock Paper Scissors Lizard Spock game
+# Raise an error if initial parameters do not meet the game's criteria
+class RockPaperScissorsLizardSpock
+  OPTIONS = %i[rock paper scissors lizard spock].freeze
   WINS = { paper: :rock, scissors: :paper, rock: :scissors }.freeze
 
   def initialize(choice1, choice2)
@@ -26,7 +22,7 @@ class RockPaperScissors
   end
 
   def raise_rsp_argument_error
-    rpse = NotRPSArgumentError.new(OPTIONS)
+    rpse = NotRpslsArgumentError.new(OPTIONS)
     raise rpse
   end
 
