@@ -35,7 +35,7 @@ class RockPaperScissors
   end
 
   def raise_error_if_not_vallid(choice)
-    raise NotRPSArgumentError unless OPTIONS.include? (choice)
+    raise NotRPSArgumentError unless OPTIONS.include?(choice)
   end
 
   def winner
