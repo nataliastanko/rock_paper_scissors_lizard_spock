@@ -12,16 +12,11 @@
 
 # require 'pry'
 
-##
-# Not Rock Paper Scissors Argument Error
-NotRPSArgumentError = Class.new(ArgumentError) do
-  def message
-    "Possible options: #{OPTIONS.join(', ')}"
-  end
-end
+require_relative 'errors/not_rsp_argument_error'
 
 ##
 # Describes RockPaperScissors game
+# Raise an error if initial parameters do not meet games criteria
 class RockPaperScissors
   OPTIONS = %i[rock paper scissors].freeze
   WINS = { paper: :rock, scissors: :paper, rock: :scissors }.freeze
