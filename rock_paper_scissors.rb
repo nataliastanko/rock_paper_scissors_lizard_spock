@@ -13,6 +13,14 @@
 # require 'pry'
 
 ##
+# Not Rock Paper Scissors Argument Error
+NotRPSArgumentError = Class.new(ArgumentError) do
+  def message
+    "Possible options: #{OPTIONS.join(', ')}"
+  end
+end
+
+##
 # Describes RockPaperScissors game
 class RockPaperScissors
   OPTIONS = %i[rock paper scissors].freeze
@@ -27,7 +35,7 @@ class RockPaperScissors
   end
 
   def raise_error_if_not_vallid(choice)
-    raise ArgumentError, "Possible options: #{OPTIONS.join(', ')}" unless OPTIONS.include? (choice)
+    raise NotRPSArgumentError unless OPTIONS.include? (choice)
   end
 
   def winner
