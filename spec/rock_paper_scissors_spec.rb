@@ -4,8 +4,8 @@ require_relative '../rock_paper_scissors'
 
 RSpec.describe 'rock paper scissors game' do
   it 'paper beats rock' do
-    expect(RockPaperScissors.new.winner(:rock, :paper)).to eq :paper
     expect(RockPaperScissors.new.winner(:paper, :rock)).to eq :paper
+    expect(RockPaperScissors.new.winner(:rock, :paper)).to eq :paper
   end
 
   it 'scissors beat paper' do
@@ -22,5 +22,10 @@ RSpec.describe 'rock paper scissors game' do
     expect(RockPaperScissors.new.winner(:rock, :rock)).to eq :draw
     expect(RockPaperScissors.new.winner(:paper, :paper)).to eq :draw
     expect(RockPaperScissors.new.winner(:scissors, :scissors)).to eq :draw
+  end
+
+  it 'fails if given options different than rock paper or scissors' do
+    expect { RockPaperScissors.new.winner(:spock, :rock) }.to raise_error(ArgumentError)
+    expect { RockPaperScissors.new.winner(:rock, :lizard) }.to raise_error(ArgumentError)
   end
 end

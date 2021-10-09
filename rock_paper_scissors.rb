@@ -16,7 +16,6 @@
 # Describes RockPaperScissors game
 class RockPaperScissors
   WINS = { paper: :rock, scissors: :paper, rock: :scissors }.freeze
-  # WINS = { 'paper' => 'paper', 'scissors' => 'paper', 'rock' => 'scissors' }.freeze
 
   def winner(choice1, choice2)
     return :draw if choice1 == choice2
