@@ -38,6 +38,10 @@ class RockPaperScissors
     raise rpse
   end
 
+  def wins?(choice)
+    winner == choice
+  end
+
   def winner
     return :draw if @choice1 == @choice2
 
