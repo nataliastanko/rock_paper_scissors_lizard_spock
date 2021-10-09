@@ -24,8 +24,11 @@ RSpec.describe 'rock paper scissors game' do
     expect(RockPaperScissors.new(:scissors, :scissors).winner).to eq :draw
   end
 
-  # it 'fails if given options different than rock paper or scissors' do
-  #   expect { RockPaperScissors.new(:spock, :rock).winner }.to raise_error(NotRPSArgumentError)
-  #   expect { RockPaperScissors.new(:rock, :lizard).winner }.to raise_error(NotRPSArgumentError)
-  # end
+  it 'fails if given options different than rock paper or scissors' do
+    error_message = 'Possible options: rock, paper, scissors'
+    expect { RockPaperScissors.new(:spock, :rock).winner }.to raise_error(NotRPSArgumentError)
+    expect { RockPaperScissors.new(:rock, :lizard).winner }.to raise_error(NotRPSArgumentError)
+    expect { RockPaperScissors.new(:rock, :lizard).winner }.to raise_error(NotRPSArgumentError, error_message)
+  end
+
 end

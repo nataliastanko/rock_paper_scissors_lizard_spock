@@ -25,12 +25,17 @@ class RockPaperScissors
     @choice1 = choice1
     @choice2 = choice2
 
-    raise_error_if_not_vallid choice1
-    raise_error_if_not_vallid choice2
+    raise_error_if_choice_not_valid choice1
+    raise_error_if_choice_not_valid choice2
   end
 
-  def raise_error_if_not_vallid(choice)
-    raise NotRPSArgumentError unless OPTIONS.include?(choice)
+  def raise_error_if_choice_not_valid(choice)
+    raise_rsp_argument_error unless OPTIONS.include?(choice)
+  end
+
+  def raise_rsp_argument_error
+    rpse = NotRPSArgumentError.new(OPTIONS)
+    raise rpse
   end
 
   def winner

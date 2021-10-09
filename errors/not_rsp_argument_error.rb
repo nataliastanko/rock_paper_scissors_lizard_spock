@@ -3,7 +3,12 @@
 ##
 # Not Rock Paper Scissors Argument Error
 class NotRPSArgumentError < ArgumentError
-  def message(options)
-    "Possible options: #{options.join(', ')}"
+  def initialize(options)
+    super
+    @options = options
+  end
+
+  def message
+    "Possible options: #{@options.join(', ')}"
   end
 end
