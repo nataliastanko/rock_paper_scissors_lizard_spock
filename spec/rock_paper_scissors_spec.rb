@@ -17,4 +17,8 @@ RSpec.describe 'rock paper scissors game' do
     expect(RockPaperScissors.new.winner(:rock, :scissors)).to eq :rock
     expect(RockPaperScissors.new.winner(:scissors, :rock)).to eq :rock
   end
+
+  it 'is a draw' do
+    expect(RockPaperScissors.new.winner(:rock, :rock)).to eq :draw
+  end
 end
