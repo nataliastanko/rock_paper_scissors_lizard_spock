@@ -12,7 +12,7 @@ class RockPaperScissorsLizardSpock
     paper: %i[rock spock],
     scissors: %i[paper lizard],
     lizard: %i[spock paper],
-    spock: %i[scissors],
+    spock: %i[scissors rock]
   }.freeze
 
   def initialize(choice1, choice2)

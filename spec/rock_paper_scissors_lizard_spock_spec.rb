@@ -47,6 +47,11 @@ RSpec.describe 'rock paper scissors lizard spock game' do
     expect(RockPaperScissorsLizardSpock.new(:spock, :paper).winner).to eq :paper
     expect(RockPaperScissorsLizardSpock.new(:paper, :spock).winner).to eq :paper
   end
+
+  it 'spock vaporizes rock' do
+    expect(RockPaperScissorsLizardSpock.new(:spock, :rock).winner).to eq :spock
+    expect(RockPaperScissorsLizardSpock.new(:rock, :spock).winner).to eq :spock
+  end
 end
 
 RSpec.describe 'rock paper scissors lizard spock game wins meta' do
