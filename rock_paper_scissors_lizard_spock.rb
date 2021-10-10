@@ -25,11 +25,6 @@ class RockPaperScissorsLizardSpock
 
   def raise_error_if_choice_not_valid(choice)
     raise_rpsls_argument_error unless OPTIONS.include?(choice)
-    raise_error_if_wins_not_exist choice
-  end
-
-  def raise_error_if_wins_not_exist(choice)
-    raise RuntimeError if WINS[choice].nil?
   end
 
   def raise_rpsls_argument_error
