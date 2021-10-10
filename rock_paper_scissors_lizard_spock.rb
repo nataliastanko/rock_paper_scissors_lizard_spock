@@ -10,7 +10,8 @@ class RockPaperScissorsLizardSpock
   WINS = {
     paper: %i[rock],
     scissors: %i[paper],
-    rock: %i[scissors lizard]
+    rock: %i[scissors lizard],
+    lizard: []
   }.freeze
 
   def initialize(choice1, choice2)
@@ -19,12 +20,15 @@ class RockPaperScissorsLizardSpock
 
     raise_error_if_choice_not_valid choice1
     raise_error_if_choice_not_valid choice2
-
-    raise RuntimeError if WINS[@choice1].nil?
   end
 
   def raise_error_if_choice_not_valid(choice)
     raise_rpsls_argument_error unless OPTIONS.include?(choice)
+    raise_error_if_wins_not_exist choice
+  end
+
+  def raise_error_if_wins_not_exist(choice)
+    raise RuntimeError if WINS[choice].nil?
   end
 
   def raise_rpsls_argument_error

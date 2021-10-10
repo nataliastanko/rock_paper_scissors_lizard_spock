@@ -21,7 +21,7 @@ RSpec.describe 'rock paper scissors lizard spock game' do
   it 'rock crushes lizard' do
     expect(RockPaperScissorsLizardSpock.new(:rock, :lizard).winner).to eq :rock
     # expect(RockPaperScissorsLizardSpock.new(:lizard, :rock).winner).to eq :rock
-    expect { RockPaperScissorsLizardSpock.new(:lizard, :rock).winner }.to raise_error(RuntimeError)
+    expect { RockPaperScissorsLizardSpock.new(:spock, :rock).winner }.to raise_error(RuntimeError)
   end
 
   it 'describes which player won' do
