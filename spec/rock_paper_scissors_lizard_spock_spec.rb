@@ -20,12 +20,14 @@ RSpec.describe 'rock paper scissors lizard spock game' do
 
   it 'rock crushes lizard' do
     expect(RockPaperScissorsLizardSpock.new(:rock, :lizard).winner).to eq :rock
-    # expect(RockPaperScissorsLizardSpock.new(:lizard, :rock).winner).to eq :rock
-    expect { RockPaperScissorsLizardSpock.new(:spock, :rock).winner }.to raise_error(RuntimeError)
+    expect(RockPaperScissorsLizardSpock.new(:lizard, :rock).winner).to eq :rock
   end
+end
 
-  it 'describes which player won' do
+RSpec.describe 'rock paper scissors lizard spock game wins meta' do
+  it 'describes if player won' do
     expect(RockPaperScissorsLizardSpock.new(:rock, :paper).wins?(:paper)).to eq true
+    expect(RockPaperScissorsLizardSpock.new(:paper, :rock).wins?(:paper)).to eq true
     expect(RockPaperScissorsLizardSpock.new(:rock, :rock).wins?(:rock)).to eq false
     expect(RockPaperScissorsLizardSpock.new(:rock, :rock).wins?(:paper)).to eq false
   end
@@ -37,7 +39,7 @@ RSpec.describe 'rock paper scissors lizard spock game exceptions' do
     expect(RockPaperScissorsLizardSpock.new(:paper, :paper).winner).to eq :draw
     expect(RockPaperScissorsLizardSpock.new(:scissors, :scissors).winner).to eq :draw
     # expect(RockPaperScissorsLizardSpock.new(:spock, :spock).winner).to eq :draw
-    # expect(RockPaperScissorsLizardSpock.new(:lizard, :lizard).winner).to eq :draw
+    expect(RockPaperScissorsLizardSpock.new(:lizard, :lizard).winner).to eq :draw
   end
 
   it 'fails if given options different than rock, paper, scissors, lizard, spock' do
@@ -48,9 +50,15 @@ RSpec.describe 'rock paper scissors lizard spock game exceptions' do
     expect { RockPaperScissorsLizardSpock.new(:voyager, :thumb).winner }.to raise_error(NotRpslsArgumentError, e_msg)
   end
 
+  it 'fails if incorrect win request' do
+    expect { RockPaperScissorsLizardSpock.new(:spock, :rock).winner }.to raise_error(RuntimeError)
+  end
+
   it 'responds to the question if draw' do
     expect(RockPaperScissorsLizardSpock.new(:rock, :paper).draw?).to eq false
     expect(RockPaperScissorsLizardSpock.new(:paper, :paper).draw?).to eq true
+    expect(RockPaperScissorsLizardSpock.new(:scissors, :scissors).draw?).to eq true
+    expect(RockPaperScissorsLizardSpock.new(:lizard, :lizard).draw?).to eq true
     # expect(RockPaperScissorsLizardSpock.new(:spock, :spock).draw?).to eq true
   end
 end
