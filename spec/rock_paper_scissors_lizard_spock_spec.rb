@@ -22,6 +22,11 @@ RSpec.describe 'rock paper scissors lizard spock game' do
     expect(RockPaperScissorsLizardSpock.new(:rock, :lizard).winner).to eq :rock
     expect(RockPaperScissorsLizardSpock.new(:lizard, :rock).winner).to eq :rock
   end
+
+  it 'lizard poisons spock' do
+    expect(RockPaperScissorsLizardSpock.new(:spock, :lizard).winner).to eq :lizard
+    expect(RockPaperScissorsLizardSpock.new(:lizard, :spock).winner).to eq :lizard
+  end
 end
 
 RSpec.describe 'rock paper scissors lizard spock game wins meta' do
@@ -48,10 +53,6 @@ RSpec.describe 'rock paper scissors lizard spock game exceptions' do
     expect { RockPaperScissorsLizardSpock.new(:rock, :thumb).winner }.to raise_error(NotRpslsArgumentError)
     expect { RockPaperScissorsLizardSpock.new(:rock, :thumb).winner }.to raise_error(NotRpslsArgumentError, e_msg)
     expect { RockPaperScissorsLizardSpock.new(:voyager, :thumb).winner }.to raise_error(NotRpslsArgumentError, e_msg)
-  end
-
-  it 'fails if incorrect win request' do
-    expect { RockPaperScissorsLizardSpock.new(:spock, :rock).winner }.to raise_error(RuntimeError)
   end
 
   it 'responds to the question if draw' do

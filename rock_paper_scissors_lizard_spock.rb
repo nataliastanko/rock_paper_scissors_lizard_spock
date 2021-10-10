@@ -8,10 +8,11 @@ require_relative 'errors/not_rpsls_argument_error'
 class RockPaperScissorsLizardSpock
   OPTIONS = %i[rock paper scissors lizard spock].freeze
   WINS = {
+    rock: %i[scissors lizard],
     paper: %i[rock],
     scissors: %i[paper],
-    rock: %i[scissors lizard],
-    lizard: []
+    lizard: %i[spock],
+    spock: []
   }.freeze
 
   def initialize(choice1, choice2)
