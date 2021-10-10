@@ -9,7 +9,7 @@ class RockPaperScissorsLizardSpock
   OPTIONS = %i[rock paper scissors lizard spock].freeze
   WINS = {
     rock: %i[scissors lizard],
-    paper: %i[rock],
+    paper: %i[rock spock],
     scissors: %i[paper lizard],
     lizard: %i[spock paper],
     spock: %i[scissors],
