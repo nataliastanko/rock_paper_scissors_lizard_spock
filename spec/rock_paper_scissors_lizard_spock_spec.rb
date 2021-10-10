@@ -2,7 +2,7 @@
 
 require_relative '../rock_paper_scissors_lizard_spock'
 
-RSpec.describe 'rock paper scissors lizard spock game' do
+RSpec.describe 'rock paper scissors game' do
   it 'paper covers rock' do
     expect(RockPaperScissorsLizardSpock.new(:paper, :rock).winner).to eq :paper
     expect(RockPaperScissorsLizardSpock.new(:rock, :paper).winner).to eq :paper
@@ -17,20 +17,12 @@ RSpec.describe 'rock paper scissors lizard spock game' do
     expect(RockPaperScissorsLizardSpock.new(:rock, :scissors).winner).to eq :rock
     expect(RockPaperScissorsLizardSpock.new(:scissors, :rock).winner).to eq :rock
   end
+end
 
+RSpec.describe 'lizard game extension' do
   it 'rock crushes lizard' do
     expect(RockPaperScissorsLizardSpock.new(:rock, :lizard).winner).to eq :rock
     expect(RockPaperScissorsLizardSpock.new(:lizard, :rock).winner).to eq :rock
-  end
-
-  it 'lizard poisons spock' do
-    expect(RockPaperScissorsLizardSpock.new(:spock, :lizard).winner).to eq :lizard
-    expect(RockPaperScissorsLizardSpock.new(:lizard, :spock).winner).to eq :lizard
-  end
-
-  it 'spock smashes scissors' do
-    expect(RockPaperScissorsLizardSpock.new(:spock, :scissors).winner).to eq :spock
-    expect(RockPaperScissorsLizardSpock.new(:scissors, :spock).winner).to eq :spock
   end
 
   it 'scissors decapitates lizard' do
@@ -42,6 +34,13 @@ RSpec.describe 'rock paper scissors lizard spock game' do
     expect(RockPaperScissorsLizardSpock.new(:lizard, :paper).winner).to eq :lizard
     expect(RockPaperScissorsLizardSpock.new(:paper, :lizard).winner).to eq :lizard
   end
+end
+
+RSpec.describe 'spock game extension' do
+  it 'spock smashes scissors' do
+    expect(RockPaperScissorsLizardSpock.new(:spock, :scissors).winner).to eq :spock
+    expect(RockPaperScissorsLizardSpock.new(:scissors, :spock).winner).to eq :spock
+  end
 
   it 'paper disproves spock' do
     expect(RockPaperScissorsLizardSpock.new(:spock, :paper).winner).to eq :paper
@@ -51,6 +50,11 @@ RSpec.describe 'rock paper scissors lizard spock game' do
   it 'spock vaporizes rock' do
     expect(RockPaperScissorsLizardSpock.new(:spock, :rock).winner).to eq :spock
     expect(RockPaperScissorsLizardSpock.new(:rock, :spock).winner).to eq :spock
+  end
+
+  it 'lizard poisons spock' do
+    expect(RockPaperScissorsLizardSpock.new(:spock, :lizard).winner).to eq :lizard
+    expect(RockPaperScissorsLizardSpock.new(:lizard, :spock).winner).to eq :lizard
   end
 end
 
