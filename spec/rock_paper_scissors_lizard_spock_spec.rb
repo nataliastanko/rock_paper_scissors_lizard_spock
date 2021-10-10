@@ -41,11 +41,11 @@ RSpec.describe 'rock paper scissors lizard spock game exceptions' do
   end
 
   it 'fails if given options different than rock, paper, scissors, lizard, spock' do
-    error_message = 'Possible options: rock, paper, scissors, lizard, spock'
+    e_msg = 'Possible options: rock, paper, scissors, lizard, spock'
     expect { RockPaperScissorsLizardSpock.new(:voyager, :rock).winner }.to raise_error(NotRpslsArgumentError)
     expect { RockPaperScissorsLizardSpock.new(:rock, :thumb).winner }.to raise_error(NotRpslsArgumentError)
-    expect { RockPaperScissorsLizardSpock.new(:rock, :thumb).winner }.to raise_error(NotRpslsArgumentError, error_message)
-    expect { RockPaperScissorsLizardSpock.new(:voyager, :thumb).winner }.to raise_error(NotRpslsArgumentError, error_message)
+    expect { RockPaperScissorsLizardSpock.new(:rock, :thumb).winner }.to raise_error(NotRpslsArgumentError, e_msg)
+    expect { RockPaperScissorsLizardSpock.new(:voyager, :thumb).winner }.to raise_error(NotRpslsArgumentError, e_msg)
   end
 
   it 'responds to the question if draw' do
