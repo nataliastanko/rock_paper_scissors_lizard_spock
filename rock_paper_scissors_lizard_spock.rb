@@ -11,7 +11,7 @@ class RockPaperScissorsLizardSpock
     rock: %i[scissors lizard],
     paper: %i[rock],
     scissors: %i[paper lizard],
-    lizard: %i[spock],
+    lizard: %i[spock paper],
     spock: %i[scissors],
   }.freeze
 
