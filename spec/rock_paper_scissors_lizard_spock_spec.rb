@@ -68,8 +68,8 @@ RSpec.describe 'rock paper scissors lizard spock game exceptions' do
     expect(RockPaperScissorsLizardSpock.new(:rock, :rock).winner).to eq :draw
     expect(RockPaperScissorsLizardSpock.new(:paper, :paper).winner).to eq :draw
     expect(RockPaperScissorsLizardSpock.new(:scissors, :scissors).winner).to eq :draw
-    # expect(RockPaperScissorsLizardSpock.new(:spock, :spock).winner).to eq :draw
     expect(RockPaperScissorsLizardSpock.new(:lizard, :lizard).winner).to eq :draw
+    expect(RockPaperScissorsLizardSpock.new(:spock, :spock).winner).to eq :draw
   end
 
   it 'fails if given options different than rock, paper, scissors, lizard, spock' do
@@ -85,6 +85,6 @@ RSpec.describe 'rock paper scissors lizard spock game exceptions' do
     expect(RockPaperScissorsLizardSpock.new(:paper, :paper).draw?).to eq true
     expect(RockPaperScissorsLizardSpock.new(:scissors, :scissors).draw?).to eq true
     expect(RockPaperScissorsLizardSpock.new(:lizard, :lizard).draw?).to eq true
-    # expect(RockPaperScissorsLizardSpock.new(:spock, :spock).draw?).to eq true
+    expect(RockPaperScissorsLizardSpock.new(:spock, :spock).draw?).to eq true
   end
 end
